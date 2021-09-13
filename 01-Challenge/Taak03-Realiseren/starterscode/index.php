@@ -197,8 +197,12 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
         ];
 
         var bubbleTexts = [
-            '<img src="../starterscode/images/Ijmuiden.jpg" alt="" height: >',
-            "<P>hi</p>"
+            '<h3>Ijmuiden<h3><img src="../starterscode/images/Ijmuiden.jpg" alt="" height: >',
+            '<h3>Assen<h3><img src="../starterscode/images/Assen.jpg" alt="" height: >',
+            '<h3>Espelo<h3><img src="../starterscode/images/Espelo.jpg" alt="" height: >',
+            '<h3>Weustenrade<h3><img src="../starterscode/images/Weustenrade.jpg" alt="" height: >',
+
+
 
 
 
