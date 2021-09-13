@@ -1,6 +1,6 @@
 <?php
 // Je hebt een database nodig om dit bestand te gebruiken....
-
+include("database.php");
 if (!isset($db_conn)) { //deze if-statement checked of er een database-object aanwezig is. Kun je laten staan.
     return;
 }
@@ -92,7 +92,9 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
             <div class="filter-box">
                 <form class="filter-form">
                     <div class="form-control">
-                        <a href="index.php">Reset Filters</a>
+                        <div id="reset">
+                            <a href="index.php">Reset Filters</a>
+                        </div>
                     </div>
                     <div class="form-control">
                         <label for="ligbad">Ligbad</label>
@@ -104,6 +106,40 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                     </div>
                     <button type="submit" name="filter_submit">Filter</button>
                 </form>
+                <div class="text">
+                    <p>
+                    <h4>Ijmuiden Cottage</h4>
+                    Welkom bij dit huisje! In 2018 is dit huisje gerenoveerd. De woning bestaat uit twee lagen met op de begane grond een ingerichte keuken met inbouwapparatuur, een grote woonruimte en een toilet. De bovenverdieping is bestaat uit twee slaapkamers met twee tweepersoonsbedden. Daarnaast is er ook een badkamer met ligbad en toilet. De woning is voorzien van CV, WIFI, en digitale tv.
+                    <br>
+                    <br>
+                    <h5>kenmerken</h5>
+                    -Ligbad
+                    <br>
+                    <h4>Assen bungalow</h4>
+                    Het huisje is omringd door bomen, bloemen en planten. Het is een prachtige plek om wakker te worden met het geluid van vogels. Mischien ziet u vanaf de tuinbank egeltjes en eekhoorns. Het huisje heeft een compleet ingerichte keuken met o.a. een 5 pits gaskooksstel, grote oven en uitgebreide benodigdheden. Er is een aparte eettafel aanwezig
+                    <br>
+                    <br>
+                    <h5>Kenmerken</h5>
+                    Zwembad
+                    <br>
+                    <h4>Espelo entree</h4>
+                    Het huisje ligt op het platteland tussen Deventer (20 minuten) en Almelo (30 minuten), in het coulissenlandschap van de achterhoek. Je kunt hier perfect wandelen of fietsen. Met het huisje als thuisbasis kun je de achterhoek en vlakbij het Nationaal Park De Sallandse Heuvelrug kun je hier een geweldige tijde beleven. De verhuurders genieten elke dag weer van de rust en de ruimte.
+
+                    <br>
+                    <h5>Kenmerken</h5>
+                    <br>
+                    Zwembad
+                    <br>
+                    Ligbad
+
+                    <h4>Wuenenstrade Woning</h4>
+                    Bent u op zoek naar een verblijf met veel mooie natuur in de buurt waar u echt tot rust komt? Dan is het dit natuurhuisje misschien de plek die u zocht. Het huisje staat op een vakantiepark, waar er een relaxte en gemoedelijke sfeer hangt. Het huisje staat tegen een bos aan, beschikt over een mooie afgesloten tuin en u bent al met minder dan 50 meter lopen in de prachtige natuur.
+                    <br>
+                    <h5>Kenmerken</h5>
+                    - Ligbad
+
+                    </p>
+                </div>
                 <div class="homes-box">
                     <?php if (isset($database_gegevens) && $database_gegevens != null) : ?>
                         <?php foreach ($database_gegevens as $huisje) : ?>
@@ -152,11 +188,19 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
     <script>
         // De verschillende markers moeten geplaatst worden. Vul de longitudes en latitudes uit de database hierin
         var coordinates = [
+            [52.44902, 4.61001],
+            [52.99864, 6.64928],
+            [52.30340, 6.36800],
+            [50.89720, 5.90979]
 
 
         ];
 
         var bubbleTexts = [
+            '<img src="../starterscode/images/Ijmuiden.jpg" alt="" height: >',
+            "<P>hi</p>"
+
+
 
 
         ];

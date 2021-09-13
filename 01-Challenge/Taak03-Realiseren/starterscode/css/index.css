@@ -1,51 +1,91 @@
 #mapid {
-    height: 670px;
+  height: 500px;
+  padding-top: 50px;
+  margin-top: 81px;
 }
 
 main {
-    display: flex;
+  display: flex;
 }
 
-main .left{
-    width: 50%;}
+main .left {
+  width: 50%;
+}
 
 main .right {
-    margin-left: 20px;
-    width: 50%;
+  margin-left: 20px;
+  width: 50%;
 }
 
 .right .filter-box .homes-box {
-    width: 100%;
-    padding: 20px;
-    list-style: none;
+  width: 100%;
+  padding: 20px;
+  list-style: none;
 }
 
 footer {
-    display: flex;
-    position: static;
-    bottom: 0px;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid blue;
+  display: flex;
+  position: static;
+  bottom: 0px;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid blue;
 }
 
 footer div {
-    width: 33%;
-    height: 20px;
+  width: 33%;
+  height: 20px;
 }
 
-.filter-box label{
-    width: 100px;
-    line-height: 1.8em;
+.filter-box label {
+  width: 100px;
+  line-height: 1.8em;
 }
 
-.form-control{
-    line-height: 50px;
+.form-control {
+  line-height: 50px;
 }
 
-.form-control label{
-    letter-spacing: 0.15em;
+.form-control label {
+  letter-spacing: 0.15em;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: url(../images/Color-Fade-Background-1920x1080-63-Faded-Wallpapers-On-.jpg);
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  text-align: center;
+  background: #264653;
+  margin: auto;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+}
+.text {
+  text-align: center;
+}
+header h1 {
+  color: #2a9d8f;
+  text-shadow: 2px 2px black;
+}
+#reset {
+  margin-top: 80px;
+}
+header :hover {
+  color: #f4a261;
+  transform: scaleY(3px), scaleX(6px);
+  transition: ease-in-out 0.3s;
+  text-shadow: 2px 3px #e76f51;
+}
+img {
+  height: 200px;
+  width: 250px;
 }
