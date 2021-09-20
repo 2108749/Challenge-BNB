@@ -16,13 +16,13 @@ if (isset($_GET['filter_submit'])) {
     if ($_GET['faciliteiten'] == "ligbad") { // Als ligbad is geselecteerd filter dan de zoekresultaten
         $bathIsChecked = true;
 
-        $sql = ""; // query die zoekt of er een BAD aanwezig is.
+        $sql = "SELECT * FROM homes WHERE bath_present=1"; // query die zoekt of er een BAD aanwezig is.
     }
 
     if ($_GET['faciliteiten'] == "zwembad") {
         $poolIsChecked = true;
 
-        $sql = ""; // query die zoekt of er een ZWEMBAD aanwezig is.
+        $sql = "SELECT * FROM homes WHERE pool_present=1"; // query die zoekt of er een ZWEMBAD aanwezig is.
     }
 }
 
