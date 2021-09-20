@@ -104,7 +104,9 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                         <label for="zwembad">Zwembad</label>
                         <input type="radio" id="zwembad" name="faciliteiten" value="zwembad" <?php if ($poolIsChecked) echo 'checked' ?>>
                     </div>
+
                     <button type="submit" name="filter_submit">Filter</button>
+
                 </form>
                 <div class="text">
                     <p>
@@ -148,7 +150,8 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                             </h4>
 
                             <p>
-                                <?php echo $huisje['description'] ?>
+                                <?php echo $huisje['description'] ?> <br>
+                                <?php echo $huisje['image'] ?>
                             </p>
                             <div class="kenmerken">
                                 <h6>Kenmerken</h6>
