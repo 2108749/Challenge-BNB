@@ -2,6 +2,7 @@
   height: 500px;
   padding-top: 50px;
   margin-top: 81px;
+  border-radius: 50%;
 }
 
 main {
@@ -140,6 +141,12 @@ button:hover {
   justify-content: left;
   gap: 20px;
 }
-a {
+button a {
+  color: white;
   text-decoration: none;
+}
+button a:hover {
+  background: white;
+  color: black;
+  font-size: 15px;
 }
