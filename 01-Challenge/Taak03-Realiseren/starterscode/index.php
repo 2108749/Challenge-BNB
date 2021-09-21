@@ -102,10 +102,9 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
                             <input type="radio" id="zwembad" name="faciliteiten" value="zwembad" <?php if ($poolIsChecked) echo 'checked' ?>>
                         </div>
                         <div class="parent">
-                            <button type="submit" name="filter_submit">Filter</button>
-                            <div class="form-control">
-                                <a class="bunda2" href="index.php">Reset Filters</a>
-                            </div>
+                            <button class="bunda2" type="submit" name="filter_submit" value="filter">Filter</button>
+                            <button class="bunda2" type="submit" name="filter_submit" value="reset"><a href="index.php">Reset filter</a></button>
+
                         </div>
 
                     </form>
