@@ -51,44 +51,73 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
 
 <body>
     <header>
-        <h1>Quattro Cottage Rental</h1>
+        <h1>Diego's Rental</h1>
     </header>
     <main>
         <div class="left">
             <div id="mapid"></div>
             <div class="book">
-                <h3>Reservering maken</h3>
-                <div class="form-control">
-                    <label for="aantal_personen">Vakantiehuis</label>
-                    <select name="gekozen_huis" id="gekozen_huis">
-                        <option value="1">IJmuiden Cottage</option>
-                        <option value="2">Assen Bungalow</option>
-                        <option value="3">Espelo Entree</option>
-                        <option value="4">Weustenrade Woning</option>
-                    </select>
-                </div>
-                <div class="form-control">
-                    <label for="aantal_personen">Aantal personen</label>
-                    <input type="number" name="aantal_personen" id="aantal_personen">
-                </div>
-                <div class="form-control">
-                    <label for="aantal_dagen">Aantal dagen</label>
-                    <input type="number" name="aantal_dagen" id="aantal_dagen">
-                </div>
-                <div class="form-control">
-                    <h5>Beddengoed</h5>
-                    <label for="beddengoed_ja">Ja</label>
-                    <input type="radio" id="beddengoed_ja" name="beddengoed" value="ja">
-                    <label for="beddengoed_nee">Nee</label>
-                    <input type="radio" id="beddengoed_nee" name="beddengoed" value="nee">
-                </div>
-                <button>Reserveer huis</button>
+                <form action="" method="POST">
+                    <h3>Reservering maken</h3>
+                    <div class="form-control">
+                        <label for="aantal_personen">Vakantiehuis</label>
+                        <select name="gekozen_huis" id="gekozen_huis">
+                            <option value="1">IJmuiden Cottage</option>
+                            <option value="2">Assen Bungalow</option>
+                            <option value="3">Espelo Entree</option>
+                            <option value="4">Weustenrade Woning</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="aantal_personen">Aantal personen</label>
+                        <input type="number" name="aantal_personen" id="aantal_personen">
+                    </div>
+                    <div class="form-control">
+                        <label for="aantal_dagen">Aantal dagen</label>
+                        <input type="number" name="aantal_dagen" id="aantal_dagen">
+                    </div>
+                    <div class="form-control">
+                        <h5>Beddengoed</h5>
+                        <label for="beddengoed_ja">Ja</label>
+                        <input type="radio" id="beddengoed_ja" name="beddengoed" value="ja">
+                        <label for="beddengoed_nee">Nee</label>
+                        <input type="radio" id="beddengoed_nee" name="beddengoed" value="nee">
+                    </div>
+                    <input class="submit" type="submit" value="reserveer huis" name="submit"></input>
+                    <?php if (isset($database_gegevens) && $database_gegevens != null) : ?>
+                        <?php foreach ($database_gegevens as $huisje) : ?>
+                            <?php
+                            $gekozen = [1 => 55.00, 2 => 155.00, 3 => 300.00, 4 => 75.00];
+                            $beddenprijs = [1 => 10.00, 2 => 0.00, 3 => 0.00, 4 => 0.00];
+                            if (isset($_POST['aantal_dagen']) && $_POST['aantal_personen'] != null) {
+                                $aantal_dagen = $_POST['aantal_dagen'];
+                                $aantal_personen = $_POST['aantal_personen'];
+                                $gekozenhuis = $_POST['gekozen_huis'];
+                                $nummerhuis = $gekozen[$gekozenhuis];
+                                $bedden = $beddenprijs[$gekozenhuis];
+                            }
+                            ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
             </div>
             <div class="currentBooking">
                 <div class="bookedHome"></div>
-                <div class="totalPriceBlock">Totale prijs &euro;<span class="totalPrice">0.00</span></div>
+                <div class="totalPriceBlock">
+                    <div class="mL">Totale prijs &euro;<span class="totalPrice"><?php if (isset($_POST['submit'])) {
+                                                                                    if (isset($_POST['beddengoed']) && $_POST['beddengoed'] == "ja") {
+                                                                                        echo $all = ($nummerhuis * $aantal_dagen) * $aantal_personen + $bedden;
+                                                                                    } elseif (isset($_POST['beddengoed']) && $_POST['beddengoed'] == "nee") {
+                                                                                        echo $totaal = ($nummerhuis * $aantal_dagen) * $aantal_personen;
+                                                                                    } else {
+                                                                                        echo "";
+                                                                                    }
+                                                                                } ?></div></span>
+                </div>
+                </form>
             </div>
         </div>
+
         <div class="right">
             <div class="bunda">
                 <div class="filter-box">
@@ -156,7 +185,7 @@ if (is_object($db_conn->query($sql))) { //deze if-statement controleert of een s
     </main>
     <footer>
         <div></div>
-        <div>copyright Quattro Rentals BV.</div>
+        <div>copyright Diego's Rentals BV.</div>
         <div></div>
 
     </footer>
